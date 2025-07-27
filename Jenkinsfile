@@ -50,7 +50,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nexusdocker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh """
-                        echo "$DOCKER_PASS" | docker login $REGISTRY_URL -u admin "$DOCKER_USER" --password-stdin
+                        echo "$DOCKER_PASS" | docker login $REGISTRY_URL -u "$DOCKER_USER" --password-stdin
                     """
                 }
             }
